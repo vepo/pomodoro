@@ -1,8 +1,41 @@
+* {
+    -webkit-app-region: no-drag;
+}
+
 body {
     background-color: transparent;
     text-align      : center;
     color           : #FFFFFF;
     position        : relative;
+}
+
+body.dragging {
+    opacity: 0.3;
+}
+
+button:focus {
+    outline: none;
+}
+
+.btn-move {
+    height          : 3vw;
+    z-index         : 5;
+    position        : absolute;
+    top             : 34vw;
+    left            : 70vw;
+    opacity         : 0.3;
+    background-color: transparent;
+    border          : none;
+}
+
+.btn-move:hover {
+    opacity: 0.7;
+    cursor : pointer;
+}
+
+.btn-move img {
+    height: 100%;
+    width : auto;
 }
 
 .backgroud-image {

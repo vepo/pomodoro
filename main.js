@@ -6,11 +6,14 @@ function createWindow() {
         height: 512,
         frame: false,
         transparent: true,
-        alwaysOnTop: true
+        alwaysOnTop: true,
+        webPreferences: {
+            nodeIntegration: true
+        }
     })
 
     win.loadFile('index.html')
-    // win.webContents.openDevTools()
+    //win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
