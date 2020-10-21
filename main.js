@@ -1,5 +1,7 @@
 //handle setupevents as quickly as possible
-const setupEvents = require('./installers/setupEvents')
+const setupEvents = require('./installers/setupEvents');
+const path = require('path');
+
 if (setupEvents.handleSquirrelEvent()) {
     // squirrel event handled and app will exit in 1000ms, so don't do anything else
     return;
@@ -16,7 +18,8 @@ function createWindow() {
         alwaysOnTop: true,
         webPreferences: {
             nodeIntegration: true
-        }
+        },
+        icon: path.join('.', 'assets', 'icons', 'win', 'icon.ico')
     })
 
     win.loadFile('index.html')
