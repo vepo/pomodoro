@@ -2,7 +2,6 @@ const { webFrame } = require('electron');
 //require('electron').webFrame.context.moveTo(0,0)
 
 window.onload = () => {
-    console.log(webFrame);
     let timer = new Timer(document.getElementById('timer-display'));
     let display = new Display(timer, document.getElementById('timer-start-button'));
 
