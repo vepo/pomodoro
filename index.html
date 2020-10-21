@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Pomodoro</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script src="./src/history.js"></script>
     <script src="./src/timer.js"></script>
     <script src="./src/display.js"></script>
     <script src="./src/pomodoro.app.js"></script>
@@ -21,6 +22,15 @@
         <div class="timer">
             <span id="timer-display" class="display">00:00</span>
             <button id="timer-start-button" class="btn-start">Start</button>
+        </div>
+        <div id="history-holder" class="history-holder">
+            <div class="history">
+                <div class="entry header">
+                    <span>Type</span>
+                    <span>Start Time</span>
+                    <span>End Time</span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="footer" style="display: none;">

@@ -1,8 +1,8 @@
 const { webFrame } = require('electron');
-//require('electron').webFrame.context.moveTo(0,0)
 
 window.onload = () => {
-    let timer = new Timer(document.getElementById('timer-display'));
+    let history = new History(document.getElementById('history-holder'));
+    let timer = new Timer(document.getElementById('timer-display'), history);
     let display = new Display(timer, document.getElementById('timer-start-button'));
 
     let dragging = false;
