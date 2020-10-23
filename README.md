@@ -24,3 +24,7 @@ npm start
 npm run package-win
 npm run create-installer-win
 ```
+
+## Screen Shot
+
+![Display Screen Shot](./resources/screen-shot.png)
