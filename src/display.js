@@ -1,13 +1,17 @@
+const { ipcRenderer } = require('electron')
+
 class Display {
     constructor(timer, btnStartElm) {
         let status = true;
         btnStartElm.addEventListener('click', () => {
             if (status) {
-                timer.start();
+                ipcRenderer.send('timer-start', { x: 'asdad' });
+                //timer.start();
                 status = false;
                 btnStartElm.innerHTML = 'Stop';
             } else {
-                timer.stop();
+                ipcRenderer.send('timer-stop', 'asdad');
+                //timer.stop();
                 status = true;
                 btnStartElm.innerHTML = 'Start';
             }

@@ -1,12 +1,6 @@
-const path = require('path');
-
 class Timer {
 
-    constructor(displayElm, history) {
-        this.history = history;
-        this.displayElm = displayElm;
-        this.startAudio = new Audio(path.join('.', 'assets', 'audios', 'Boom-sound.mp3'));
-        this.endAudio = new Audio(path.join('.', 'assets', 'audios', 'Bell-noise.mp3'));
+    constructor() {
         this.runningData = {
             working: true,
             restCounter: 0,
@@ -30,21 +24,21 @@ class Timer {
     }
 
     startTimer(time) {
-        if (this.runningData.working) {
-            this.startAudio.play();
-        }
+        //        if (this.runningData.working) {
+        //            this.startAudio.play();
+        //        }
         this.runningData.counter = time * 60;
         this.runningData.updateDisplayInterval = setInterval(() => {
             this.runningData.counter--;
             this.updateDisplay();
         }, 1_000);
 
-        if (this.runningData.working && this.endAudio.duration) {
-            let endAudioDuration = Math.round(this.endAudio.duration * 1000);
-            this.runningData.endTimerPlayTimeout = setTimeout(() => {
-                this.endAudio.play();
-            }, (time * 60 * 1_000) - endAudioDuration);
-        }
+        //        if (this.runningData.working && this.endAudio.duration) {
+        //            let endAudioDuration = Math.round(this.endAudio.duration * 1000);
+        //            this.runningData.endTimerPlayTimeout = setTimeout(() => {
+        //                this.endAudio.play();
+        //            }, (time * 60 * 1_000) - endAudioDuration);
+        //        }
         this.runningData.endTimerTimeout = setTimeout(() => {
             clearInterval(this.runningData.updateDisplayInterval);
             this.switchState();
@@ -98,9 +92,16 @@ class Timer {
         }
     }
 
+
+    addWindow(w) {
+        // TODO
+    }
+
     updateDisplay() {
         let minutes = Math.floor(this.runningData.counter / 60);
         let seconds = (this.runningData.counter % 60);
         this.displayElm.innerHTML = (minutes < 10 ? '0' : '') + minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
 }
+
+exports.Timer = Timer;
